@@ -1,0 +1,392 @@
+@font-face {
+   font-family: 'Open Sans';
+   font-style: normal;
+   font-weight: 400;
+   src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFVZ0bf8pkAg.woff2) format('woff2');
+   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+#main {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* menu stuff */
+
+#menu {
+    width: 400px;
+    height: 100vh;
+    border-right: 1px solid #e5e5e5;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+#menu h1 {
+    font-family: 'Open Sans';
+    font-size: 1.3em;
+    margin: 20px 0;
+    text-align: center;
+}
+
+#option-container {
+    width: 100%;
+    display: none;
+}
+
+#option-container p{
+    padding: 0;
+    width: 100%;
+    height: 50px;
+    font-family: 'Open Sans';
+    line-height: 50px;
+    text-align: center;
+}
+
+#option-container p:hover {
+    background-color: #e5e5e5;
+}
+
+#menu p {
+    font-size: 10p;
+}
+
+/* cal */
+
+#cal-tl-container {
+    display: grid;
+    grid-template: repeat(4, 1fr) / 1fr;
+    height: 95vh;
+    width: 80vw;
+}
+
+#main-feature {
+    width: 80vw;
+}
+
+/* calendar related styling */
+
+#selector {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans';
+    height: 5vh;
+}
+
+#calendar-container {
+    grid-area: 1 / 1 / span 4 / span 1;
+}
+
+#calendar {
+    font-family: 'Open Sans';
+    border-spacing: 0;
+    height: 100%;
+}
+
+#calendar th {
+    /* border: 1px solid #e5e5e5; */
+    text-align: center;
+}
+
+#calendar td {
+    border-right: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
+    vertical-align: top;
+    text-align: center;
+    width: calc(80vw / 7);
+}
+
+#calendar td:hover {
+    background-color: rgba(229,229,229,.3);
+}
+
+/* selector buttons */
+
+.choose-month-button {
+    width: 50px;
+    height: 30px;
+    background-color:rgba(0,0,0,0);
+    border: none;
+    border-radius: 0px;
+    outline: none;
+    transition: .1s;
+    padding: 0;
+    vertical-align: center;
+    line-height: 30px;
+    margin: 0 10px;
+}
+
+#date-box {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#inc-year-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    margin: 0 10px;
+    line-height: 30px;
+    outline: none;
+}
+
+#dec-year-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    margin: 0 10px;
+    line-height: 30px;
+    outline: none;
+}
+
+.fsb {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.currentDay {
+    background-color: #C6E2FF;
+}
+
+.faded {
+    color: rgba(0,0,0, .4);
+}
+
+.bold {
+    position: relative;
+    display: block;
+    position: relative;
+    font-weight: bold;
+    top: 0;
+    left: 0;
+}
+
+/* 
+
+Timeline related functions
+
+*/
+
+#timeline-container {
+    grid-area: 4 / 1 / span 1 / span 1;
+    overflow: scroll;
+    position: relative;
+    border-top: 1px solid #e5e5e5;
+    width: 80vw;
+}
+
+#timeline table{
+    width: 4800px;
+    height: 20px;
+    font-family: 'Open Sans';
+}
+
+#timeline table th{
+    width: 200px;
+    height: 20px;
+    font-family: 'Open Sans';
+    text-align: left;
+}
+
+/* event */
+#add-event-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: none;
+}
+
+#add-event-container input {
+    display: block;
+}
+
+.event {
+    padding: 0px 5px;
+    font-size: .8em;
+    margin: 5px 0;
+}
+
+#add-event-form {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Open Sans';
+}
+
+#add-event-form input[type="text"] {
+    display: block;
+    width: 80%;
+    height: 20px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+#add-event-btn2, .hide-event-btn {
+    display: block; 
+    width: 30%;
+    height: 30px;
+    background-color: #C6E2FF;
+    border: none;
+    font-family: 'Open Sans';
+    margin: 10px auto;
+}
+
+label {
+    font-family: 'Open Sans';
+    font-size: .85em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* modify event */
+
+#modify-event-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: none;
+    overflow: scroll;
+}
+
+.modify-event-btn {
+    display: block; 
+    width: 30%;
+    height: 30px;
+    background-color: #ff4d4d;
+    border: none;
+    font-family: 'Open Sans';
+    margin: 10px auto;
+}
+
+.mod {
+    text-align: center;
+    margin: 10px auto;
+    width: 80%;
+    height: 20px;
+}
+
+/* remove event */
+
+#remove-event-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: none;
+    overflow: scroll;
+}
+
+.event-group {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Open Sans'; 
+}
+
+.remove-event-btn, .share-event-button {
+    display: block; 
+    width: 30%;
+    height: 30px;
+    background-color: #ff4d4d;
+    border: none;
+    font-family: 'Open Sans';
+    margin: 10px auto;
+}
+
+/* account */
+
+#account-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 100%;
+    /* display: none; */
+}
+
+.basic-flex {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.basic-input {
+    width: 80%;
+    height: 20px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.basic-submit {
+    width: 30%;
+    height: 30px;
+    background-color: #C6E2FF;
+    border: none;
+    font-family: 'Open Sans';
+    margin: 10px auto;
+}
+
+.refresh-event-btn {
+    display: block; 
+    width: 30%;
+    height: 30px;
+    background-color: #C6E2FF;
+    border: none;
+    font-family: 'Open Sans';
+    margin: 10px auto;
+}
+
+.school {
+    background-color: red;
+}
+
+.work {
+    background-color: #5493FF;;
+}
+
+.party {
+    background-color: lightgreen;
+}
+
+.off {
+    background-color: transparent !important;
+}
+
+/* share */
+
+#share-container {
+    display: none;
+}
+
+/* filter */
+
+#filter-container {
+    display: none;
+}

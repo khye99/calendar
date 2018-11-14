@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Calendar</title>
+        <link rel="stylesheet" type="text/css" href='./style.css' />
+    </head>
+    <body>
+        <div id="main">
+            <div id="menu">
+                <h1 id="top-header">Calendar</h1>
+                <div id="account-container">
+                    <div id="sign-in-form" class="basic-flex">
+                        <label>Sign in</label>
+                        <input id="sign-in-user" class="basic-input" type="text" name="username" placeholder="Username" required/>
+                        <input id="sign-in-pass" class="basic-input" type="password" name="password" placeholder="Password" required/>
+                        <input id="sign-in-submit" class="basic-submit" type="submit" value="Sign in" />
+                    </div>
+                    <div id="sign-up-form" class="basic-flex">
+                        <label>Sign up</label>
+                        <input id="sign-up-user" class="basic-input" type="text" name="username" placeholder="Username" required/>
+                        <input id="sign-up-pass" class="basic-input" type="password" name="password" placeholder="Password" required/>
+                        <input id="sign-up-submit" class="basic-submit" type="submit" value="Sign up" />
+                    </div>
+                </div>
+                <div id="option-container">
+                    <p id="add-event-btn">Add event</p>
+                    <p id="modify-event-btn">Modify event</p>
+                    <p id="remove-event-btn">Remove event</p>
+                    <p id="toggle-tag-btn">Toggle Tags</p>
+                    <p id="share-btn">Share</p>
+                    <p id="filter-btn">Filter</p>
+                    <p id="sign-out-btn">Sign out</p>
+                </div>
+
+                
+                <div id="filter-container">
+                    <button class="hide-event-btn">Back</button>
+                    <input id="check-school" type="checkbox" name="school" value="school" checked> Show school tags<br>
+                    <input id="check-work" type="checkbox" name="work" value="work" checked> Show work tags <br>
+                    <input id="check-party" type="checkbox" name="party" value="party" checked> Show party tags <br>
+                    <input id="filter-submit-btn" type="submit" value="Filter events" />
+                </div>
+
+
+                <div id="share-container">
+                    <button class="hide-event-btn">Back</button>
+                    <div id="share-event-form"></div>
+                </div>
+
+
+                <div id="add-event-container">
+                    <button class="hide-event-btn">Back</button>
+                    <div id="add-event-form">
+                        <label>Start date</label>
+                        <input id="event-start-date" type="text" placeholder="MM/DD/YYYY" />
+                        <label>End date</label>
+                        <input id="event-end-date" type="text" placeholder="MM/DD/YYYY" />
+                        <label>Start time</label>
+                        <input id="event-start-time" type="text" placeholder="HH:MM" />
+                        <label>End time</label>
+                        <input id="event-end-time" type="text" placeholder="HH:MM" />
+                        <label>Title</label>
+                        <input id="event-title" type="text" placeholder="Title" />
+                        <label>Tag</label>
+                        <select>
+                            <option value=""></option>
+                            <option value="school">School (RED)</option>
+                            <option value="work">Work (BLUE)</option>
+                            <option value="party">Party (GREEN)</option>
+                        </select>
+                        <input type="text" name="share_username" placeholder="Share to whom" />
+                        <button id="add-event-btn2">Add event</button>
+                    </div>
+                </div>
+                <div id="modify-event-container">
+                    <button class="hide-event-btn">Back</button>
+                    <div id="modify-event-form">
+                    </div>
+                </div>
+                <div id="remove-event-container">
+                    <button class="hide-event-btn">Back</button>
+                    <div id="remove-event-form"></div>
+                </div>
+            </div>
+            <div id="main-feature">
+                <div id="selector">
+                    <button id="dec-year-button" class="fsb">&lt;&lt;</button>
+                    <button id="prev-button" class="choose-month-button fsb">&lt;</button>
+                    <p>
+                        <span id="month" class="fsb"></span> <span id="year"></span>
+                    </p>
+                    <button id="next-button" class="choose-month-button fsb">&gt;</button>
+                    <button id="inc-year-button" class="fsb">&gt;&gt;</button>
+                </div>
+                <div id="cal-tl-container">
+                    <div id="calendar-container">
+                        <table id="calendar">
+                            <tr>
+                                <th>Sun</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                            </tr>
+                            <tr>
+                                <td class="day-box" id="c0"></td>
+                                <td class="day-box" id="c1"></td>
+                                <td class="day-box" id="c2"></td>
+                                <td class="day-box" id="c3"></td>
+                                <td class="day-box" id="c4"></td>
+                                <td class="day-box" id="c5"></td>
+                                <td class="day-box" id="c6"></td>
+                            </tr>
+                            <tr>
+                                <td class="day-box" id="c7"></td>
+                                <td class="day-box" id="c8"></td>
+                                <td class="day-box" id="c9"></td>
+                                <td class="day-box" id="c10"></td>
+                                <td class="day-box" id="c11"></td>
+                                <td class="day-box" id="c12"></td>                        
+                                <td class="day-box" id="c13"></td>
+                            </tr>
+                            <tr>
+                                <td class="day-box" id="c14"></td>
+                                <td class="day-box" id="c15"></td>
+                                <td class="day-box" id="c16"></td>
+                                <td class="day-box" id="c17"></td>
+                                <td class="day-box" id="c18"></td>
+                                <td class="day-box" id="c19"></td>                        
+                                <td class="day-box" id="c20"></td>
+                            </tr>
+                            <tr>
+                                <td class="day-box" id="c21"></td>
+                                <td class="day-box" id="c22"></td>
+                                <td class="day-box" id="c23"></td>
+                                <td class="day-box" id="c24"></td>
+                                <td class="day-box" id="c25"></td>
+                                <td class="day-box" id="c26"></td>                        
+                                <td class="day-box" id="c27"></td>
+                            </tr>
+                            <tr>
+                                <td class="day-box" id="c28"></td>
+                                <td class="day-box" id="c29"></td>
+                                <td class="day-box" id="c30"></td>
+                                <td class="day-box" id="c31"></td>
+                                <td class="day-box" id="c32"></td>
+                                <td class="day-box" id="c33"></td>                        
+                                <td class="day-box" id="c34"></td>
+                            </tr>
+                            <tr>
+                                <td class="day-box" id="c35"></td>
+                                <td class="day-box" id="c36"></td>
+                                <td class="day-box" id="c37"></td>
+                                <td class="day-box" id="c38"></td>
+                                <td class="day-box" id="c39"></td>
+                                <td class="day-box" id="c40"></td>                        
+                                <td class="day-box" id="c41"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./script.js"></script>
+    </body>
+</html>
